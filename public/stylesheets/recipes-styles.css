@@ -5,7 +5,7 @@ box-shadow: 15px 15px 50px rgba(45, 45, 45, 1);
 color: white;
 }
 
-row.spacer{
+div.spacer{
   height: 10%;
 }
 
@@ -31,4 +31,8 @@ h1 {
 
 span.logo {
   font-family: 'Lobster', cursive;
+}
+
+.select:hover {
+  background-color: rgba(0, 204, 163, .1);
 }
