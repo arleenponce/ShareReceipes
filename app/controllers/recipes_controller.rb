@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   def new
     @tags = Tag.all
     @recipe = Recipe.new
+    @ratings = Rating.all
   end
 
   # GET /recipes/1/edit
@@ -26,7 +27,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
+    @ingredients = Recipe.new(params[:ingredients])
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
@@ -37,7 +38,6 @@ class RecipesController < ApplicationController
       end
     end
   end
-
 
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
@@ -72,6 +72,17 @@ end
       @recipe.save
     render 'show.html.erb'
   end
+  end
+
+  def add_rating
+    @recipe = Recipe.find(params[:id])
+    newRating = Rating.new(params[:rating])
+    if newRating.valid?
+      newRating.save
+      @recipe.ratings << newRating
+      @recipe.save
+    end
+  render 'show.html.erb'
   end
 
   private

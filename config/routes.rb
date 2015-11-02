@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+
   match '/tags/search', {:via => :get, :to => 'tags#search'}
   resources :tags
 
+  match '/ratings', {:via => :get, :to => 'ratings#index'}
+  resources :ratings
+
   match '/', :via => [:get], :to => redirect('/home.html')
+
   match('/recipes/:id/add_tag', {:via => :post, :to => 'recipes#add_tag'})
+  resources :recipes
+
+  match('/recipes/:id/add_rating', {:via => :post, :to => 'recipes#add_rating'})
   resources :recipes
   # match '(when you create recipe)', :via => [:get], :to => redirect('/tag')
   # The priority is based upon order of creation: first created -> highest priority.

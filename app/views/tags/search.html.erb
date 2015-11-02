@@ -19,7 +19,7 @@
       <% if !@tags.empty? %>
         <h3>Recipes Found</h3>
           <% @tags.each do |tag| %>
-            <%= tag.recipe.title %><br>
+            <%= link_to(tag.recipe.title, tag.recipe) %><br>
           <% end %>
           <% else %>
         <h3>No Recipes Found :(</h3>

@@ -36,3 +36,11 @@ span.logo {
 .select:hover {
   background-color: rgba(0, 204, 163, .1);
 }
+
+input {
+  color: black;
+}
+
+.input {
+  color: black;
+}

@@ -38,6 +38,10 @@ input {
   color: black;
 }
 
+.input {
+  color: black;
+}
+
 .select:hover {
   background-color: rgba(0, 204, 163, .1);
 }
